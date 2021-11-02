@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+
+	trippb "coolcar/proto/gen/go"
+
+	"google.golang.org/protobuf/proto"
 )
-import trippb "coolcar/proto/gen/go"
 
 func main(){
 	trip := trippb.Trip{
@@ -12,10 +15,17 @@ func main(){
 		DurationSec: 3600,
 		FeeCent: 10000,
 	}
-	fmt.Println(trip)
+	fmt.Println(&trip)
 	b, err := proto.Marshal(&trip)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("%X\n", b)
+
+	var trip2 trippb.Trip
+	err = proto.Unmarshal(b,&trip2)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(&trip2)
 }
