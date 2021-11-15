@@ -1,3 +1,14 @@
+# Windows
+[Dd]esktop.ini
+Thumbs.db
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -15,4 +26,6 @@
 .vscode
 
 **/wx/miniprogram/**/*.js
+!**/wx/miniprogram/service/proto_gen/**/*.js
 node_modules
+miniprogram_npm
